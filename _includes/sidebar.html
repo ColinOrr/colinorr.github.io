@@ -25,13 +25,21 @@
       {% endif %}
     {% endfor %}
 
-    <a class="sidebar-nav-item" href="https://twitter.com/ColinTheGeek" target="_blank">Twitter: @ColinTheGeek</a>
-    <a class="sidebar-nav-item" href="https://github.com/ColinOrr" target="_blank">GitHub: @ColinOrr</a>
+    <a class="sidebar-nav-item" href="https://twitter.com/ColinTheGeek" target="_blank">
+      <span class="socicon">a</span>&nbsp;&nbsp;ColinTheGeek
+    </a>
+    <a class="sidebar-nav-item" href="https://github.com/ColinOrr" target="_blank">
+      <span class="socicon">Q</span>&nbsp;&nbsp;ColinOrr
+    </a>
+    <a class="sidebar-nav-item" href="/atom.xml">
+      <span class="socicon">,</span>&nbsp;&nbsp;Subscribe
+    </a>
   </nav>
 
   <div class="sidebar-item">
     <p>
-      &copy; {{ site.time | date: '%Y' }} Colin Orr
+      &copy; {{ site.time | date: '%Y' }} Colin Orr<br>
+      All Rights Reserved
     </p>
   </div>
 </div>
