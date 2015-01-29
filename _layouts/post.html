@@ -1,5 +1,6 @@
 ---
 layout: default
+comments: true
 ---
 
 <div class="post">
@@ -14,18 +15,16 @@ layout: default
   <a title="Google+" href="https://plus.google.com/share?url={{site.url}}{{page.url}}" class="socicon" target="blank">c</a>
 </div>
 
-<div class="related">
-  <h2>Related Posts</h2>
-  <ul class="related-posts">
-    {% for post in site.related_posts limit:3 %}
-      <li>
-        <h3>
-          <a href="{{ site.baseurl }}{{ post.url }}">
-            {{ post.title }}
-            <small>{{ post.date | date_to_string }}</small>
-          </a>
-        </h3>
-      </li>
-    {% endfor %}
-  </ul>
-</div>
+{% if page.comments %}
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'colinthegeek';
+    
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+{% endif %}

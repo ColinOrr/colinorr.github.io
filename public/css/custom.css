@@ -11,7 +11,7 @@
 
 .share {
   text-align: right;
-  margin-bottom: 1em;
+  margin-bottom: 3em;
 }
 
 .share .socicon {
@@ -19,9 +19,9 @@
   border: 1px solid #BBC7CC;
   padding: 0.5em;
   transition: all 0.5s ease;
+  text-decoration: none !important;
 }
 
 .share .socicon:hover {
-  text-decoration: none;
   color: #50585D;
 }
