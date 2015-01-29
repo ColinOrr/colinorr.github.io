@@ -8,3 +8,20 @@
 @media (max-width: 48em) {
   .glasses { display: none; }
 }
+
+.share {
+  text-align: right;
+  margin-bottom: 1em;
+}
+
+.share .socicon {
+  color: #BBC7CC;
+  border: 1px solid #BBC7CC;
+  padding: 0.5em;
+  transition: all 0.5s ease;
+}
+
+.share .socicon:hover {
+  text-decoration: none;
+  color: #50585D;
+}

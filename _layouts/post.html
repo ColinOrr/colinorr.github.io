@@ -8,6 +8,12 @@ layout: default
   {{ content }}
 </div>
 
+<div class="share">
+  <a title="Twitter" href="https://twitter.com/share?text={{page.title | cgi.escape}}&amp;url={{site.url}}{{page.url}}" class="socicon" target="blank">a</a>
+  <a title="Facebook" href="https://www.facebook.com/sharer/sharer.php?u={{site.url}}{{page.url}}" class="socicon" target="blank">b</a>
+  <a title="Google+" href="https://plus.google.com/share?url={{site.url}}{{page.url}}" class="socicon" target="blank">c</a>
+</div>
+
 <div class="related">
   <h2>Related Posts</h2>
   <ul class="related-posts">
