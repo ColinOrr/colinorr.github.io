@@ -9,6 +9,10 @@
   .glasses { display: none; }
 }
 
+.post-date a {
+  display: inline;
+}
+
 .share {
   text-align: right;
   margin-bottom: 3em;

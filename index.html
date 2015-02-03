@@ -12,7 +12,11 @@ title: Home
       </a>
     </h1>
 
-    <span class="post-date">{{ post.date | date_to_string }}</span>
+    <span class="post-date">
+      {{ post.date | date_to_string }}
+      &middot;
+      <a href="{{ post.url }}#disqus_thread" class="post-date">Comments</a>
+    </span>
 
     {{ post.summary | markdownify }}
 
