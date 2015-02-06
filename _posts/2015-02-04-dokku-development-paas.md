@@ -37,7 +37,7 @@ the same instructions should apply to other cloud providers.
 At the time of writing, Dokku is tested on Ubuntu 14.04 x64.  With DigitalOcean,
 you just create a new $5 per month droplet for this version of Ubuntu.  Don't
 forget to add your SSH key, although it's optional you'll need it later for
-working with Dokku. If you don't have an SSH key, GitHub has a [good article][4]
+working with Dokku. If you don't have an SSH key, GitHub has a [good article][5]
 explaining how to create one.
 
 DigitalOcean will create your droplet in about 60s, just enough time to go and
@@ -140,7 +140,7 @@ Add a new remote repository that points to your Dokku server:
 
     git remote add geek dokku@colinthegeek.com:hello-world
 
-...where *"geek"* is the name of the remote, *"dokku"* is the Git user name
+...where *"geek"* is the name of the remote, *"dokku"* is the Git user name,
 *"colinthegeek.com"* is the server, and *"hello-world"* is the name of the app.
 
 Push the code to Dokku:
