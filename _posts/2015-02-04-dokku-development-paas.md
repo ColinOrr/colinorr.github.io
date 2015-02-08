@@ -28,7 +28,7 @@ container to run your application.  So if your app works on Heroku, it'll work
 on Dokku.
 
 I'm running Ruby on Rails, Express, Laravel and static HTML sites all on the
-same 512GB Ubuntu server for only $5 a month with [DigitalOcean][4]!  The rest
+same 512MB Ubuntu server for only $5 a month with [DigitalOcean][4]!  The rest
 of this article explains how to set it up.  Although I'm using DigitalOcean,
 the same instructions should apply to other cloud providers.
 
