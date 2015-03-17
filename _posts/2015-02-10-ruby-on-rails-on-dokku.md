@@ -4,4 +4,8 @@ title: Ruby on Rails, on Dokku
 summary: |
   TODO: Summary
 ---
-TODO: Article
+[Introduction]
+[Create a Rails App]
+[Configure & Push to Dokku]
+[Add the Postgres add-in]
+[Export the Postgres data]
