@@ -106,10 +106,10 @@ The next step is to register your domain name with Dokku:
 
 When it comes to deploying your application, you'll use a `git push` to upload
 it to the **dokku** user.  This means you have to add your SSH public key as an
-authorised key for the dokku user account.  Your public key will be on you local
+authorised key for the dokku user account.  Your public key will be on the local
 machine in a `~/.ssh/id_rsa.pub` file by convention.
 
-Exit your SSH session to get back to you local machine:
+Exit the SSH session to get back to your local machine:
 
     exit
 
