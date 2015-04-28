@@ -111,7 +111,7 @@ Rails error message:
 
 Something has gone wrong, and Rails won't tell us what because it's running in
 production mode.  It does suggest that we check the logs, so lets try that.  SSH
-onto your server and execute the `dokku` to see the commands that are available:
+onto your server and execute `dokku` to see the commands that are available:
 
     > ssh root@colinthegeek.com
     > dokku
@@ -196,11 +196,27 @@ Now you can visit the site and start logging flicks!
 
 ## Managing Data
 
+The PostgreSQL plugin includes some handy commands for exporting and importing
+data.  These commands use the `postgresql-client` behind the scenes, so you must
+install it on your Dokku server before you use them:
+
     sudo apt-get install postgresql-client
-    dokku postgresql:dump dokku-rails > ~/dokku-rails.sql
-    dokku postgresql:restore dokku-rails < ~/dokku-rails.sql
-    dokku postgresql:console dokku-rails
-    \d
+
+You can export the database with the `dump` command:
+
+    dokku postgresql:dump flicklog-db > ~/flicklog-db.sql
+
+This creates a full backup of your database schema and data.  You can restore a
+backup with the `restore` command:
+
+    dokku postgresql:restore flicklog-db < ~/flicklog-db.sql
+
+Finally, the `console` command is useful if you want to run SQL queries against
+your database.  The following commands open a console, selects all of the movies
+and quits:
+
+    dokku postgresql:console flicklog-db
+    select * from movies;
     \q
 
 [1]: /2015/02/04/dokku-development-paas
