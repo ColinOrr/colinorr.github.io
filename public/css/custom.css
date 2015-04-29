@@ -38,3 +38,12 @@
 .button:hover {
   color: #50585D;
 }
+
+pre {
+  overflow: auto;
+}
+
+code {
+  white-space: pre;
+  word-wrap: normal;
+}
