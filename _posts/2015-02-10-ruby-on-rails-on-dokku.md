@@ -2,7 +2,10 @@
 layout: post
 title: Ruby on Rails, on Dokku!
 summary: |
-  TODO: Summary
+  In my last post I showed how to setup Dokku and deploy a simple "Hello
+  World" web application.  Now let's turn it up to 11 and build a fully-blown
+  Ruby on Rails application with its own database, taking a look at some of
+  Dokku's management features along the way.
 ---
 In my [last post][1] I showed how to setup [Dokku][2] and deploy a simple "Hello
 World" web application.  Now let's turn it up to 11 and build a fully-blown
