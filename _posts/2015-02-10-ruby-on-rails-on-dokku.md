@@ -104,8 +104,8 @@ deployment log:
 
 ## Viewing the Logs
 
-If you visit the site now, you'll be disappointed to see the following Ruby on
-Rails error message:
+If you visit the site now, you'll be disappointed to see the following error
+message:
 
 ![Error](/public/images/ruby-on-rails-on-dokku/error.png)
 
@@ -218,6 +218,13 @@ and quits:
     dokku postgresql:console flicklog-db
     select * from movies;
     \q
+
+--------------------------------------------------------------------------------
+
+Hopefully this was guide was helpful, I've been using Dokku to host side
+projects for a while and I find it very useful.  You can find the source code
+from in this article on my GitHub:
+[https://github.com/ColinOrr/dokku-rails](https://github.com/ColinOrr/dokku-rails)
 
 [1]: /2015/02/04/dokku-development-paas
 [2]: http://progrium.com/blog/2013/06/19/dokku-the-smallest-paas-implementation-youve-ever-seen
