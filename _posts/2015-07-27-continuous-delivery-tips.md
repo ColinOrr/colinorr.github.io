@@ -73,15 +73,50 @@ environment to use in a sales demo.
 
 Here's the golden rule:
 
-> Every task performed on the build server can also be done by a developer,
-from the command line, on their local development environment
+> Every task performed on the build server can also be done by a developer, from
+the command line, on their local development environment
 
 If you follow this rule then developers can write and test their scripts in
-isolation, without interrupting the build pipeline.  It also makes it easier to
-reproduce and debug issues with your scripts.
+isolation, without interrupting the delivery pipeline.  It also makes it easier
+to reproduce and debug issues with your scripts.
 
 For us, this means that our TeamCity server simply runs a series of Rake tasks
-at each stage of the deployment pipeline; and we use a clone of our development
-VM (built using [Vagrant]()) as the TeamCity build agent.
+at each stage of the delivery pipeline; and we use a clone of our development VM
+(built using [Vagrant]()) as the TeamCity build agent.
+
+## Tip #3: Use traceable version numbers
+
+All being well, your pipeline will be pumping out multiple release candidates
+every day... one for each push that a developer makes to the repository.
+
+Different releases will be deployed to your various test, demo and production
+environments, so it's useful to have a numeric version number that can easily be
+traced back to your source control.  This helps with questions such as:
+
+> does this release include the fix for bug #99?
+
+... and:
+
+> is our demo server on the same version as production?
+
+We use a fairly standard numeric version number like `v1.4.2.357` made up of
+`major`.`minor`.`patch`.`build` parts.  The first three parts are set manually
+by adding an annotated tag to the commit in our Git repository.
+
+```bash
+# TODO: Annotated tag command
+```
+
+The `build` part of the version number is automatically generated based on the
+number of commits since the last tag.  Git will tell you this when you use the
+describe command:
+
+```bash
+# TODO: Git describe command
+```
+
+This approach allows you to trace a version back to the specific commit in
+source control that it was built from.  It ties in well with [GitHub]() as they
+also use annotated tags for their [Releases]() feature.
 
 [1]: http://martinfowler.com/bliki/DeploymentPipeline.html
