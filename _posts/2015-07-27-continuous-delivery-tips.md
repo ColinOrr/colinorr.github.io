@@ -45,22 +45,22 @@ Rake to add tasks for building and testing .NET:
 One of the advantages of using Rake is that you're actually writing Ruby code.
 That means you can write custom tasks directly in the Rakefile using the full
 power of Ruby with its clean and readable syntax.  Adding a Gemfile to your
-project allows you to download third party libraries (Gems) for tasks like XML
-manipulation, sending emails, making HTTP calls etc.
+project allows you to download third party libraries (Gems) for all kinds of
+tasks such as XML manipulation, sending emails, making HTTP calls etc.
 
 Finally, avoid declarative XML based task systems (I'm looking at you MSBuild).
 Their syntax is verbose and horrible to read, especially if looping or branching
 is required in your scripts. Custom tasks are generally farmed out to another
-scripting language like PowerShell, or worse yet code complied into DLLs, so
-even the simplest scripting task becomes a real chore.
+scripting language like PowerShell, or worse yet compiled into DLLs, so even the
+simplest scripting task becomes a real chore.
 
 ## Tip #2: Don't marry your CI platform
 
 Continuous integration platforms like [TeamCity]() provide all sorts of fancy
-features to entice you into a long term relationship.  They can detect the type
-of project in your source code and automatically build it, provide test runners
-for every testing framework known to mankind, even publish your libraries to
-package mangers and your websites to the cloud!
+features to entice you into a long term relationship. They can detect the type
+of project in your source code and automatically build it, provide runners for
+every testing framework known to mankind, even publish your libraries to package
+managers and your websites to the cloud!
 
 **Don't be tempted!**  The problem here is that the logic needed to build and
 release your software gradually moves from your source controlled codebase into
@@ -116,7 +116,12 @@ describe command:
 ```
 
 This approach allows you to trace a version back to the specific commit in
-source control that it was built from.  It ties in well with [GitHub]() as they
-also use annotated tags for their [Releases]() feature.
+source control that it was built from. If you keep your code in [GitHub]() this
+works with their [Releases]() feature as it also uses annotated tags in the same
+manner.
+
+## Tip #4: Quarantine flakey tests
+## Tip #5: Speed is the key
+## Tip #6: Read the book
 
 [1]: http://martinfowler.com/bliki/DeploymentPipeline.html
