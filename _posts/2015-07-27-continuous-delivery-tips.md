@@ -2,7 +2,9 @@
 layout: post
 title: Continuous Delivery Tips
 summary: |
-  TODO: Summary
+  I recently gave a friend some advice on setting up his first Continuous Delivery
+  Pipeline.  We've been running pipelines on our .NET web projects for the last
+  couple of years so I had a few tips that I'll document here for posterity.
 ---
 I recently gave a friend some advice on setting up his first Continuous Delivery
 Pipeline.  We've been running pipelines on our .NET web projects for the last
@@ -33,13 +35,18 @@ writing a large number of scripts.  Currently we have scripts for:
 Get used to the idea that these scripts will be first class citizens in your
 codebase that need the same care and attention as your production code.
 
-We use Ruby, more specifically [Rake](), for all of our scripting needs.  Now
+We use Ruby, more specifically [Rake][2], for all of our scripting needs.  Now
 choosing Rake for scripting .NET projects has raised a few eyebrows at the
-office, but it actually works really well.  The [Albacore]() project extends
+office, but it actually works really well.  The [Albacore][3] project extends
 Rake to add tasks for building and testing .NET:
 
 ```ruby
-# TODO: Albacore example
+build :rebuild do |b|
+  b.sln    = 'MyProject.sln'
+  b.target = ['Clean', 'Rebuild']
+
+  b.prop 'Configuration', 'Release'
+end
 ```
 
 One of the advantages of using Rake is that you're actually writing Ruby code.
@@ -56,7 +63,7 @@ simplest scripting task becomes a real chore.
 
 ## Tip #2: Don't marry your CI platform
 
-Continuous integration platforms like [TeamCity]() provide all sorts of fancy
+Continuous integration platforms like [TeamCity][4] provide all sorts of fancy
 features to entice you into a long term relationship. They can detect the type
 of project in your source code and automatically build it, provide runners for
 every testing framework known to mankind, even publish your libraries to package
@@ -82,7 +89,7 @@ to reproduce and debug issues with your scripts.
 
 For us, this means that our TeamCity server simply runs a series of Rake tasks
 at each stage of the delivery pipeline; and we use a clone of our development VM
-(built using [Vagrant]()) as the TeamCity build agent.
+(built using [Vagrant][5]) as the TeamCity build agent.
 
 ## Tip #3: Use traceable version numbers
 
@@ -104,7 +111,8 @@ We use a fairly standard numeric version number like `v1.4.2.357` made up of
 by adding an annotated tag to the commit in our Git repository.
 
 ```bash
-# TODO: Annotated tag command
+$ git tag -a v1.4.2 -m 'Tagging v1.4.2'
+$ git push --tags
 ```
 
 The `build` part of the version number is automatically generated based on the
@@ -112,16 +120,56 @@ number of commits since the last tag.  Git will tell you this when you use the
 describe command:
 
 ```bash
-# TODO: Git describe command
+$ git describe
+v1.4.2-357-gec812be
 ```
 
 This approach allows you to trace a version back to the specific commit in
-source control that it was built from. If you keep your code in [GitHub]() this
-works with their [Releases]() feature as it also uses annotated tags in the same
-manner.
+source control that it was built from. If you keep your code in [GitHub][6] this
+works with their [Releases][7] feature as it also uses annotated tags in the
+same manner.
 
 ## Tip #4: Quarantine flakey tests
-## Tip #5: Speed is the key
-## Tip #6: Read the book
+
+There's nothing worse than a non-deterministic test.  They never misbehave while
+you're watching them, they can be very tricky to diagnose, and they always start
+failing while you're trying to get a critical fix through the pipeline.
+
+Setup a quarantine stage early in the project that runs after your main testing
+stages, but doesn't block a release candidate from progressing through the rest
+of the pipeline.  When a test starts failing intermittently, place it in the
+quarantine until you have a chance to properly investigate and fix it.
+
+There shouldn't be too many tests in the quarantine, you should be actively
+working on improving their reliability, so that means the quarantine stage can
+be re-run quickly, and repeatedly, until the tests go green.  If the tests
+aren't passing, even after a few re-runs, then there's probably a real issue
+with the functionality.
+
+We prefer to use a quarantine instead of simply ignoring or removing the test.
+There is still value in running your non-deterministic tests on a regular basis,
+and it's much harder to forget about them when they are clearly visible as a
+stage in your pipeline.
+
+For further reading, check out [Eradicating Non-Determinism in Tests][8].
+
+## Tip #5: Read the book
+
+My final tip is to read [the book][9].  It's an excellent read that clearly
+explains the practice of continuous delivery, and provides practical advice on
+how to set it up.
+
+You can also read the chapter on [deployment pipelines][10] as a free download -
+what wonderful chaps!
+
 
 [1]: http://martinfowler.com/bliki/DeploymentPipeline.html
+[2]: http://docs.seattlerb.org/rake
+[3]: https://github.com/Albacore/albacore/wiki
+[4]: https://www.jetbrains.com/teamcity
+[5]: https://www.vagrantup.com
+[6]: https://github.com
+[7]: https://github.com/blog/1547-release-your-software
+[8]: http://martinfowler.com/articles/nonDeterminism.html
+[9]: http://www.amazon.co.uk/dp/0321601912
+[10]: http://www.informit.com/articles/article.aspx?p=1621865
