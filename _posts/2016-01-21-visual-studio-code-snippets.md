@@ -66,9 +66,9 @@ guid
 ----
 <img alt="guid demo" width="720" height="235" data-video="/public/images/visual-studio-code-snippets/guid.gif" />
 
-It can be handy to seed well known GUIDs in order to test retrieval by ID.  The  
-issue is that no one can remember how may digits are in the stupid things -
-`guid` snippet to the rescue!
+It can be handy to seed well known GUIDs in order to test retrieval by ID.  But
+no one ever remembers how may digits are in the stupid things - `guid` snippet
+to the rescue!
 
 **Note:** you can provide two sample digits in case you make it all the way up
 to 10.
@@ -78,7 +78,7 @@ any
 <img alt="any demo" width="720" height="235" data-video="/public/images/visual-studio-code-snippets/any.gif" />
 
 More finger-gymnastics are required when using [NSubstitute's][2] catch all
-argument matcher.
+argument matcher, the `any` snippet makes life easier.
 
 Bonus Boxcar Script
 -------------------
