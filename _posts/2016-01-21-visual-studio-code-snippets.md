@@ -4,12 +4,12 @@ title: 'Visual Studio Code Snippets'
 summary: |
   Over the years I've developed a number of snippets to help me write unit tests
   using the MSpec framework.  After numerous requests from envious co-workers
-  (actually one request from a slightly curious co-worker), I've open sourced
+  (actually one request from a mildly curious co-worker), I've open sourced
   them on Github.
 ---
 Over the years I've developed a number of snippets to help me write unit tests
 using the [MSpec][1] framework.  After numerous requests from envious co-workers
-*(actually one request from a slightly curious co-worker)*, I've finally open
+*(actually one request from a mildly curious co-worker)*, I've finally open
 sourced them on Github:
 
 [https://github.com/ColinOrr/vstudio-snippets](https://github.com/ColinOrr/vstudio-snippets)
@@ -23,8 +23,8 @@ cd "Documents\Visual Studio 2013\Code Snippets\Visual C#"
 git clone https://github.com/ColinOrr/vstudio-snippets "My Code Snippets"
 ```
 
-Visual Studio watches and automatically picks up snippets from this folder, so
-no need for a restart!
+Visual Studio watches this folder and automatically loads the snippets, so no
+need for a restart!
 
 test
 ----
@@ -38,18 +38,18 @@ lam
 <img alt="lam demo" width="720" height="235" data-video="/public/images/visual-studio-code-snippets/lam.gif" />
 
 MSpec uses lambdas to link specification statements with real code.  I find them
-quite awkward to type, especially since Visual Studio formatting goes haywire
-and messes up the indentation.  The `lam` snippet sorts out the indentation and
-drops you straight into the lambda body to start writing your test code.
+awkward to type, especially since Visual Studio formatting goes haywire and
+messes up the indentation.  The `lam` snippet fixes the indentation and drops
+you straight into the lambda body, ready to start writing test code.
 
 argnull
 -------
 <img alt="argnull demo" width="720" height="235" data-video="/public/images/visual-studio-code-snippets/argnull.gif" />
 
 For production code, you can use the `argnull` snippet to speed up your argument
-guards.  This snippet uses the same parameter for the check and the error
-message so you only have to type it once.  You get an extra boost since
-intellisense kicks in to auto-complete the argument name.
+guards.  This snippet uses the same parameter for both the guard and the error
+message, so you only have to type the argument once.  You get an extra boost
+since intellisense kicks in to auto-complete the argument name.
 
 testnull
 --------
@@ -59,8 +59,8 @@ The ying to argnull's yang, `testnull` generates a test to exercise your
 argument null check.
 
 **Note:** this test inherits from a base class called `Context` which isn't
-standard MSpec.  I tend to create this class to share context and setup between
-multiple tests.
+standard MSpec.  I always create a context class for each test file to share
+context and setup between multiple tests.
 
 guid
 ----
@@ -85,9 +85,9 @@ Bonus Boxcar Script
 <img alt="boxcar demo" width="720" height="235" data-video="/public/images/visual-studio-code-snippets/boxcar.gif" />
 
 MSpec expects your specification statements to\_be\_in\_boxcar\_case.  This is
-tedious compared to typing statements with the space key.  So I've included a
-[AutoHotKey][3] script to convert anything surrounded in quotes on the current
-line into the correct format.
+tedious to type compared with using the space key.  I've included a
+[AutoHotKey][3] script to convert anything surrounded in double quotes on the
+current line into the correct format.
 
   1. Install [AutoHotKey][3]
   2. Double-click on **Boxcar.ahk** in your snippets folder
