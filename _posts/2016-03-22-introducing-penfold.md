@@ -256,7 +256,7 @@ one-liner:
 ```c#
 it["sets the equation history to:"] = () =>
 {
-    log(calculator.Equation.ShouldEqual(expected));
+    log(calculator.Equation.ShouldEqual("2 + 3"));
 };
 ```
 
