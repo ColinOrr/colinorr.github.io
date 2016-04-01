@@ -1,9 +1,9 @@
 # Dependencies
-markdown:            redcarpet
-highlighter:         pygments
-redcarpet:
-  extensions: ["fenced_code_blocks", "autolink", "tables"]
-
+markdown:            kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  
 # Permalinks
 #
 # Use of `relative_permalinks` ensures post links from the index work properly.
@@ -15,6 +15,7 @@ description:         The thoughts, ideas and musings of a full-stack software de
 url:                 http://colinthegeek.com
 baseurl:             /
 paginate:            5
+gems:                [jekyll-paginate]
 
 # About/contact
 author:
