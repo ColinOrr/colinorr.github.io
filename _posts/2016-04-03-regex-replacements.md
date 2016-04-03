@@ -19,7 +19,7 @@ Find:    class="selected"
 Replace: class="active"
 ```
 
-But this doesn't cope with elements with multiple CSS classes like:
+But this doesn't cope with elements with multiple CSS classes:
 
 ```
 class="selected"
@@ -41,6 +41,6 @@ Replace: class="$1active$2
 Strings captured by the regular expressions be added back into the replacement
 text by using the dollar - `$1` and `$2` in the example above.  If you want to
 brush up on your regular expressions, check out the [Regex Crossword][1] it's
-like sudoku for uber geeks!
+like Sudoku for uber geeks!
 
 [1]: https://regexcrossword.com/
