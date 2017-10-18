@@ -40,11 +40,11 @@ public class DataContext : DbContext
 }
 ```
 
-Advantages:
+Advantages:  
 ✔ Really easy to setup  
 ✔ Works with all databases supported by EF  
 
-Disadvantages:
+Disadvantages:  
 𝘟 No in-memory version for unit testing  
 𝘟 Cannot be mixed with standard LINQ to make more complex queries  
 𝘟 Uses magic strings that won't survive a refactor and aren't type checked  
@@ -66,12 +66,12 @@ var query =
     select person;
 ```
 
-Advantages:
+Advantages:  
 ✔ No setup required  
 ✔ Standard LINQ so it can be mixed into more complex queries  
 ✔ Strongly typed and refactor safe  
 
-Disadvantages:
+Disadvantages:  
 𝘟 No in-memory version for unit testing, it throws a not supported exception  
 𝘟 Only works with SQL Server  
 
@@ -186,13 +186,13 @@ public class DataContext : DbContext
 }
 ```
 
-Advantages:
+Advantages:  
 ✔ In-memory version for unit testing or filtering results after the query executes  
 ✔ Standard LINQ so it can be mixed into more complex queries  
 ✔ Strongly typed and refactor safe  
 ✔ Works with all databases supported by EF  
 
-Disadvantages:
+Disadvantages:  
 𝘟 A large amount of up-front setup required  
 
 ## Conclusion
@@ -203,6 +203,7 @@ custom SQL function may be worth the extra effort.
 
 As a bonus, this approach could easily be adapted to unlock other SQL features
 like soundex or geospatial queries.
+
 
 [1]: https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/ef/language-reference/entity-sql-language
 [2]: https://msdn.microsoft.com/en-us/library/system.data.objects.sqlclient.sqlfunctions(v=vs.110).aspx
