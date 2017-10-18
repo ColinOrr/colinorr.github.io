@@ -41,14 +41,14 @@ public class DataContext : DbContext
 ```
 
 Advantages:
-✔ Really easy to setup
-✔ Works with all databases supported by EF
+✔ Really easy to setup  
+✔ Works with all databases supported by EF  
 
 Disadvantages:
-𝘟 No in-memory version for unit testing
-𝘟 Cannot be mixed with standard LINQ to make more complex queries
-𝘟 Uses magic strings that won't survive a refactor and aren't type checked
-𝘟 Has a rather verbose syntax for passing parameters
+𝘟 No in-memory version for unit testing  
+𝘟 Cannot be mixed with standard LINQ to make more complex queries  
+𝘟 Uses magic strings that won't survive a refactor and aren't type checked  
+𝘟 Has a rather verbose syntax for passing parameters  
 
 ## Option 2: SQL Functions
 
@@ -67,13 +67,13 @@ var query =
 ```
 
 Advantages:
-✔ No setup required
-✔ Standard LINQ so it can be mixed into more complex queries
-✔ Strongly typed and refactor safe
+✔ No setup required  
+✔ Standard LINQ so it can be mixed into more complex queries  
+✔ Strongly typed and refactor safe  
 
 Disadvantages:
-𝘟 No in-memory version for unit testing, it throws a not supported exception
-𝘟 Only works with SQL Server
+𝘟 No in-memory version for unit testing, it throws a not supported exception  
+𝘟 Only works with SQL Server  
 
 ## Option 3: Write a Custom SQL Function
 
@@ -187,13 +187,13 @@ public class DataContext : DbContext
 ```
 
 Advantages:
-✔ In-memory version for unit testing or filtering results after the query executes
-✔ Standard LINQ so it can be mixed into more complex queries
-✔ Strongly typed and refactor safe
-✔ Works with all databases supported by EF
+✔ In-memory version for unit testing or filtering results after the query executes  
+✔ Standard LINQ so it can be mixed into more complex queries  
+✔ Strongly typed and refactor safe  
+✔ Works with all databases supported by EF  
 
 Disadvantages:
-𝘟 A large amount of up-front setup required
+𝘟 A large amount of up-front setup required  
 
 ## Conclusion
 
