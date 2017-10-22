@@ -45,10 +45,10 @@ Advantages:
 ✔ Works with all databases supported by EF  
 
 Disadvantages:  
-𝘟 No in-memory version for unit testing  
-𝘟 Cannot be mixed with standard LINQ to make more complex queries  
-𝘟 Uses magic strings that won't survive a refactor and aren't type checked  
-𝘟 Has a rather verbose syntax for passing parameters  
+✘ No in-memory version for unit testing  
+✘ Cannot be mixed with standard LINQ to make more complex queries  
+✘ Uses magic strings that won't survive a refactor and aren't type checked  
+✘ Has a rather verbose syntax for passing parameters  
 
 ## Option 2: SQL Functions
 
@@ -72,8 +72,8 @@ Advantages:
 ✔ Strongly typed and refactor safe  
 
 Disadvantages:  
-𝘟 No in-memory version for unit testing, it throws a not supported exception  
-𝘟 Only works with SQL Server  
+✘ No in-memory version for unit testing, it throws a not supported exception  
+✘ Only works with SQL Server  
 
 ## Option 3: Write a Custom SQL Function
 
@@ -193,7 +193,7 @@ Advantages:
 ✔ Works with all databases supported by EF  
 
 Disadvantages:  
-𝘟 A large amount of up-front setup required  
+✘ A large amount of up-front setup required  
 
 ## Conclusion
 
